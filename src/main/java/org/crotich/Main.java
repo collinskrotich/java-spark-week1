@@ -9,7 +9,6 @@ public class Main {
         System.out.print("This is Caesar cipher program that shifts a message(s) by the key provided \n");
         System.out.print("**************************************** \n");
 
-
         System.out.print("Enter process(1 for encoding; 2 for decoding): ");
         int process = scanner.nextInt();
 
