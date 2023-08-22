@@ -9,8 +9,7 @@ public class Process {
         for (char c : chars) {
             int pos = ALPHABETS.indexOf(Character.toUpperCase(c));
             if (pos == -1) {
-                output = output + c;
-                // For special characters
+                output = output + c; // For special characters
                 return output;
             } else {
                 int newPos = (pos + key) % 26; // modulo operator
@@ -31,11 +30,23 @@ public class Process {
         char[] chars = message.toCharArray();
         String output = "";
 
-        for(char c: chars){
-            int pos = ALPHABETS.indexOf(c);
-            int newPos = pos - key;
-            char replacement = ALPHABETS.charAt(newPos);
-            output = output + replacement;
+        for (char c : chars) {
+            int pos = ALPHABETS.indexOf(Character.toUpperCase(c));
+            if (pos == -1) {
+                output = output + c; // For special characters
+                return output;
+            } else {
+                int newPos = (pos - key) % 26; // modulo operator
+                if (newPos < 0) {
+                    newPos += 26; // negative values
+                }
+                char replacement = ALPHABETS.charAt(newPos);
+                if (Character.isLowerCase(c)) {
+                    replacement = Character.toLowerCase(replacement);
+                }
+                output = output + replacement;
+            }
+
         }
         return output;
     }
