@@ -7,7 +7,7 @@ public class Main {
         Data data = new Data();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter process: ");
+        System.out.print("Enter process(1 for encoding; 2 for decoding): ");
         int process = scanner.nextInt();
 
         System.out.print("Enter message: ");
