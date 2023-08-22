@@ -14,11 +14,11 @@ public class Process {
             } else {
                 int newPos = (pos + key) % 26; // modulo operator
                 if (newPos < 0) {
-                    newPos += 26; // Handle negative values
+                    newPos += 26; // negative values
                 }
                 char replacement = ALPHABETS.charAt(newPos);
                 if (Character.isLowerCase(c)) {
-                    replacement = Character.toLowerCase(replacement); // Maintain original case
+                    replacement = Character.toLowerCase(replacement);
                 }
                 output.append(replacement);
             }
