@@ -2,15 +2,16 @@ package org.crotich;
 
 public class Process {
     private static final String ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static String encode(String message, int key){
+    public static String encode(String message, int key) {
         char[] chars = message.toCharArray();
         String output = "";
 
         for (char c : chars) {
             int pos = ALPHABETS.indexOf(Character.toUpperCase(c));
             if (pos == -1) {
-              // For special characters
-                output.append(c);
+                output = output + c;
+                // For special characters
+                return output;
             } else {
                 int newPos = (pos + key) % 26; // modulo operator
                 if (newPos < 0) {
@@ -20,9 +21,12 @@ public class Process {
                 if (Character.isLowerCase(c)) {
                     replacement = Character.toLowerCase(replacement);
                 }
-                output.append(replacement);
+                output = output + replacement;
             }
+
         }
+        return output;
+    }
     public static String decode(String message, int key){
         char[] chars = message.toCharArray();
         String output = "";
