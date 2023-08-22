@@ -34,7 +34,7 @@ public class Process {
             int pos = ALPHABETS.indexOf(Character.toUpperCase(c));
             if (pos == -1) {
                 output = output + c; // For special characters
-                return output;
+                // return output;
             } else {
                 int newPos = (pos - key) % 26; // modulo operator
                 if (newPos < 0) {
