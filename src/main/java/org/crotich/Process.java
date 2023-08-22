@@ -13,7 +13,7 @@ public class Process {
         }else if (data.getProcess() == 2){
             return decode(data.getMessage(), data.getKey());
         }else {
-            return "";
+            return "null";
         }
 
     }
