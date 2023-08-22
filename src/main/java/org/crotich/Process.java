@@ -6,14 +6,23 @@ public class Process {
         char[] chars = message.toCharArray();
         String output = "";
 
-        for(char c: chars){
+        for (char c : chars) {
             int pos = ALPHABETS.indexOf(Character.toUpperCase(c));
-            int newPos = (pos + key) % 26;
-            char replacement = ALPHABETS.charAt(newPos);
-            output = output + replacement;
+            if (pos == -1) {
+              // For special characters
+                output.append(c);
+            } else {
+                int newPos = (pos + key) % 26; // modulo operator
+                if (newPos < 0) {
+                    newPos += 26; // Handle negative values
+                }
+                char replacement = ALPHABETS.charAt(newPos);
+                if (Character.isLowerCase(c)) {
+                    replacement = Character.toLowerCase(replacement); // Maintain original case
+                }
+                output.append(replacement);
+            }
         }
-        return output;
-    }
     public static String decode(String message, int key){
         char[] chars = message.toCharArray();
         String output = "";
